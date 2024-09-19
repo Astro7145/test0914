@@ -1,7 +1,12 @@
 package com.example.test0914.entity;
 
+import java.util.Date;
+
 import jakarta.annotation.Nonnull;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -17,13 +22,15 @@ import lombok.Setter;
 @Setter
 public class Recipt {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long rctId;
 
     @Nonnull
     private int tax;
 
     @Nonnull
-    private String purchase_date;
+    private Date purchase_date;
 
+    @Nonnull
     private int purchase_type;
 }

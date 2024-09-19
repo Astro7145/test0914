@@ -1,5 +1,7 @@
 package com.example.test0914.dto;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,10 +13,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ReciptDTO {
 
-    private String id;
-    private String purchase_date;
-    private int purchase_type;
+    private Long id;
+    
+    private Date purchase_date;
 
+    private int purchase_type;
     private int tax;
 
 }

@@ -1,6 +1,9 @@
 package com.example.test0914.entity;
 
+import java.util.Date;
+
 import jakarta.annotation.Nonnull;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,19 +24,21 @@ import lombok.Setter;
 @Setter
 public class ReciptProducts {
     @Id
-    private String prod_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long prod_id;
 
+    @Nonnull
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "rctId")
     private Recipt recipt;
 
     @Nonnull
-    private String prod_serial;
+    private Long prod_serial;
 
     @Nonnull
     private int prod_quantity;
 
     @Nonnull
-    private String purchase_date;
+    private Date purchase_date;
 
 }

@@ -1,7 +1,5 @@
 package com.example.test0914.dto;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +13,10 @@ public class ProductDTO {
     private Long id;
     private Long prod_serial;
 
-    private Date purchase_date;
+    private String prod_name;
+
+    private String purchase_date;
 
     private int prod_quantity;
+    private int prod_price;
 }

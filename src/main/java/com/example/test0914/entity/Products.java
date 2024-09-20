@@ -17,30 +17,26 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "recipt")
+@Table(name = "products")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Recipt {
+public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long rctId;
+    @Column(name = "prod_serial")
+    private Long prodSerial;
 
     @Nonnull
-    private int table_number;
+    @ColumnDefault("0")
+    private int prod_price;
 
     @Nonnull
-    private int tax;
+    @Column(length = 50)
+    @ColumnDefault("unnamed")
+    private String prod_name;
 
     @Nonnull
-    private Date purchase_date;
-
-    @Nonnull
-    private int purchase_type;
-
-    @Nonnull
-    @ColumnDefault("false")
-    @Column(columnDefinition = "TINYINT(1)")
-    private boolean isDone;
+    private Date modified;
 }

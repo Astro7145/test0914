@@ -1,5 +1,7 @@
 package com.example.test0914.controller;
 
+import java.util.List;
+
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +41,15 @@ public class ReciptController {
 
         return result;
     }
+
+    @Transactional
+    @GetMapping("/getReciptList")
+    public List<OrderDTO> getReciptList() throws Exception{
+        List<OrderDTO> result = reciptService.getReciptList();
+
+        return result;
+    }
+    
     
     
 }

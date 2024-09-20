@@ -15,11 +15,14 @@ import lombok.Setter;
 public class OrderDTO {
 
     private Long id;
+    private Long total_price;
 
-    private Date purchase_date;
+    private String purchase_date;
 
     private boolean isSuccess;
+    private boolean isDone;
 
+    private int table_number;
     private int purchase_type;
     private int tax;
 

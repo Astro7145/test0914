@@ -39,6 +39,9 @@ public class ReciptProducts {
     private int prod_quantity;
 
     @Nonnull
+    private int prod_price;
+
+    @Nonnull
     private Date purchase_date;
 
 }

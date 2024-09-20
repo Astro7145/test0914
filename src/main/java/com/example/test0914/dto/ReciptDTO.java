@@ -17,6 +17,7 @@ public class ReciptDTO {
     
     private Date purchase_date;
 
+    private int table_number;
     private int purchase_type;
     private int tax;
 

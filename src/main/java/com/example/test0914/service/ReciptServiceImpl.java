@@ -16,6 +16,8 @@ import com.example.test0914.repository.ReciptProductsRepository;
 import com.example.test0914.repository.ReciptRepository;
 import com.example.test0914.util.Converter;
 
+import jakarta.transaction.Transactional;
+
 @Component
 public class ReciptServiceImpl implements ReciptService {
 
@@ -111,7 +113,7 @@ public class ReciptServiceImpl implements ReciptService {
     public List<OrderDTO> getReciptList() throws Exception {
         List<OrderDTO> result = new ArrayList<>();
         
-        List<Recipt> recipts = reciptRepository.findByIsDone(false);
+        List<Recipt> recipts = reciptRepository.findByIsDoneAndIsCanceled(false, false);
 
         for (Recipt recipt : recipts) {
             OrderDTO order = new OrderDTO();
@@ -150,6 +152,34 @@ public class ReciptServiceImpl implements ReciptService {
         }
 
         return result;
+    }
+
+    @Transactional
+    @Override
+    public boolean setReciptDone(Long recipt_id) {
+        try {
+            Recipt recipt = reciptRepository.findByRctId(recipt_id);
+            recipt.setDone(true);
+            recipt = reciptRepository.save(recipt);
+
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    @Transactional
+    @Override
+    public boolean cancelRecipt(Long recipt_id) {
+        try {
+            Recipt recipt = reciptRepository.findByRctId(recipt_id);
+            recipt.setCanceled(true);
+            recipt = reciptRepository.save(recipt);
+
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }

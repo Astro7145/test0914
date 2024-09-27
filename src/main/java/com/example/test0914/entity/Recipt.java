@@ -43,4 +43,9 @@ public class Recipt {
     @ColumnDefault("false")
     @Column(columnDefinition = "TINYINT(1)")
     private boolean isDone;
+
+    @Nonnull
+    @ColumnDefault("false")
+    @Column(columnDefinition = "TINYINT(1)")
+    private boolean isCanceled;
 }

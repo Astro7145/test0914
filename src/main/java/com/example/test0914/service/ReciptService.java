@@ -14,4 +14,8 @@ public interface ReciptService {
     public OrderDTO getRecipt(String recipt_id) throws Exception;
 
     public List<OrderDTO> getReciptList() throws Exception;
+
+    public boolean setReciptDone(Long recipt_id);
+
+    public boolean cancelRecipt(Long recipt_id);
 }

@@ -9,5 +9,7 @@ import com.example.test0914.entity.Recipt;
 
 @Repository
 public interface ReciptRepository extends JpaRepository<Recipt, Long>{
-    List<Recipt> findByIsDone(boolean isDone) throws Exception;
+    List<Recipt> findByIsDoneAndIsCanceled(boolean isDone, boolean isCanceled) throws Exception;
+
+    Recipt findByRctId(Long rctIf) throws Exception;
 }
